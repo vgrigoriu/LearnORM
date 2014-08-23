@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CreateBookTable.cs" />
     <Compile Include="EmptyMigration.cs" />
+    <Compile Include="MakeBookColumnsNullable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
