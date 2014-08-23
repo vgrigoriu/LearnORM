@@ -12,7 +12,7 @@ namespace ORM.NHibernate
 {
     public class SessionFactoryBuilder
     {
-        public ISessionFactory Build()
+        public ISessionFactory BuildForMsSql()
         {
             var configuration = new Configuration();
             configuration.DataBaseIntegration(db =>

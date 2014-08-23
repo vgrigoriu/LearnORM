@@ -16,7 +16,7 @@ namespace ORM.NHibernate.Tests
         public void CanSaveAndQueryBook()
         {
             var sessionFactoryBuilder = new SessionFactoryBuilder();
-            var sessionFactory = sessionFactoryBuilder.Build();
+            var sessionFactory = sessionFactoryBuilder.BuildForMsSql();
 
             string title = "Dumbrava minunată" + Guid.NewGuid();
             using (var session = sessionFactory.OpenSession())
