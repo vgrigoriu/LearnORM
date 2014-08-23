@@ -12,6 +12,24 @@ namespace ORM.NHibernate
 {
     public class SessionFactoryBuilder
     {
+        public ISessionFactory BuildForMySql()
+        {
+            var configuration = new Configuration();
+            configuration.DataBaseIntegration(db =>
+            {
+                db.Dialect<MySQL55Dialect>();
+                db.ConnectionString = "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;";
+            });
+
+            foreach (var mapping in GetMappings())
+            {
+                Trace.WriteLine(mapping.AsString());
+                configuration.AddMapping(mapping);
+            }
+
+            return configuration.BuildSessionFactory();
+        }
+
         public ISessionFactory BuildForMsSql()
         {
             var configuration = new Configuration();
