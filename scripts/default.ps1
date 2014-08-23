@@ -1,6 +1,5 @@
 $sln = Join-Path $PSScriptRoot ..\src\LearnORM\LearnORM.sln
 
-
 task default -depends Test
 
 task Test -depends UpdateDatabase {
@@ -8,7 +7,11 @@ task Test -depends UpdateDatabase {
 }
 
 task UpdateDatabase -depends Compile {
-    "Update database"
+    $migrate = Join-Path $PSScriptRoot ..\src\LearnORM\packages\FluentMigrator.1.2.1.0\tools\Migrate.exe
+	$assembly = Join-Path $PSScriptRoot ..\src\LearnORM\DatabaseMigrations\bin\Debug\DatabaseMigrations.dll
+	exec {
+		& $migrate --target $assembly --task listmigrations --dbType SqlServer --connection "Server=(localdb)\v11.0;Integrated Security=true;"
+	}
 }
 
 task Compile -depends Clean {
