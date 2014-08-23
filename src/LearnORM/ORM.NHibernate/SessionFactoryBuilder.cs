@@ -18,7 +18,7 @@ namespace ORM.NHibernate
             configuration.DataBaseIntegration(db =>
             {
                 db.Dialect<MsSql2012Dialect>();
-                db.ConnectionString = "Server=(localdb)\v11.0;Integrated Security=true;";
+                db.ConnectionString = "Server=(localdb)\v11.0;Integrated Security=true;Database=LearnORM";
             });
 
             foreach (var mapping in GetMappings())
