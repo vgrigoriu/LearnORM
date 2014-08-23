@@ -67,12 +67,15 @@ namespace ORM.NHibernate
                         where = string.Format("EntityName = '{0}'", type.Name.ToLowerInvariant())
                     })));
 
+            // Foreign key columns end in Id
+            mapper.BeforeMapManyToOne += (inspector, member, map) => map.Column(member.LocalMember.Name + "Id");
+
             return mapper.CompileMappingForEach(GetEntityTypes());
         }
 
         private IEnumerable<Type> GetEntityTypes()
         {
-            return new[] {typeof (Book)};
+            return new[] {typeof (Book), typeof(Publisher)};
         }
     }
 }
