@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Entities;
 using NHibernate;
 using NHibernate.Linq;
@@ -13,31 +10,12 @@ namespace ORM.NHibernate.Tests
     public class BookTests
     {
         [Fact]
-        public void CanSaveAndQueryBook()
+        public void CanSaveAndQueryBookFromMsSql()
         {
             var sessionFactoryBuilder = new SessionFactoryBuilder();
             var sessionFactory = sessionFactoryBuilder.BuildForMsSql();
 
-            string title = "Dumbrava minunată" + Guid.NewGuid();
-            using (var session = sessionFactory.OpenSession())
-            using (var transaction = session.BeginTransaction())
-            {
-                var book = new Book {Title = title};
-
-                session.Save(book);
-
-                transaction.Commit();
-            }
-
-            using (var session = sessionFactory.OpenSession())
-            using (var transaction = session.BeginTransaction())
-            {
-                var books = session.Query<Book>().Where(book => book.Title == title).ToList();
-
-                Assert.Equal(1, books.Count);
-
-                transaction.Commit();
-            }
+            CanSaveAndQueryBook(sessionFactory);
         }
 
         [Fact]
@@ -46,11 +24,16 @@ namespace ORM.NHibernate.Tests
             var sessionFactoryBuilder = new SessionFactoryBuilder();
             var sessionFactory = sessionFactoryBuilder.BuildForMySql();
 
+            CanSaveAndQueryBook(sessionFactory);
+        }
+
+        private static void CanSaveAndQueryBook(ISessionFactory sessionFactory)
+        {
             string title = "Dumbrava minunată" + Guid.NewGuid();
             using (var session = sessionFactory.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
-                var book = new Book { Title = title };
+                var book = new Book {Title = title};
 
                 session.Save(book);
 
