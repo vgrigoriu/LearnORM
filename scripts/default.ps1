@@ -3,7 +3,11 @@ $sln = Join-Path $PSScriptRoot ..\src\LearnORM\LearnORM.sln
 task default -depends Test
 
 task Test -depends UpdateDatabase {
-    "run tests"
+	$xunit = Join-Path $PSScriptRoot ..\src\LearnORM\packages\xunit.runners.1.9.2\tools\xunit.console.clr4.exe
+	$tests = Join-Path $PSScriptRoot ..\src\LearnORM\ORM.NHibernate.Tests\bin\Debug\ORM.NHibernate.Tests.dll
+    exec {
+		& $xunit $tests
+	}
 }
 
 task UpdateDatabase -depends Compile {
