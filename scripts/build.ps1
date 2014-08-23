@@ -2,4 +2,5 @@ $psake = Join-Path $PSScriptRoot ..\src\LearnORM\packages\psake.4.3.2\tools\psak
 
 $buildScript = Join-Path $PSScriptRoot default.ps1
 
-& $psake $buildScript
+& $psake $buildScript @args
+
