@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Entities;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Cfg.Loquacious;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Dialect;
 using NHibernate.Mapping.ByCode;
@@ -14,32 +15,28 @@ namespace ORM.NHibernate
     {
         public ISessionFactory BuildForMySql()
         {
-            var configuration = new Configuration();
-            configuration.DataBaseIntegration(db =>
+            return Build(db =>
             {
                 db.Dialect<MySQL55Dialect>();
                 db.ConnectionString = "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;";
             });
-
-            foreach (var mapping in GetMappings())
-            {
-                Trace.WriteLine(mapping.AsString());
-                configuration.AddMapping(mapping);
-            }
-
-            return configuration.BuildSessionFactory();
         }
 
         public ISessionFactory BuildForMsSql()
         {
-            var configuration = new Configuration();
-            configuration.DataBaseIntegration(db =>
+            return Build(db =>
             {
                 db.Dialect<MsSql2012Dialect>();
                 // cannot use (local)\v11.0 with NHibernate
                 // see http://rhnatiuk.wordpress.com/2012/11/08/localdb-and-nhibernate/
                 db.ConnectionString = @"Server=np:\\.\pipe\LOCALDB#BAC2AF62\tsql\query;Integrated Security=true;Database=LearnORM";
             });
+        }
+
+        private ISessionFactory Build(Action<IDbIntegrationConfigurationProperties> dbProperties)
+        {
+            var configuration = new Configuration();
+            configuration.DataBaseIntegration(dbProperties);
 
             foreach (var mapping in GetMappings())
             {
