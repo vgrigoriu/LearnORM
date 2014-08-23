@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{EFC0
 		..\..\scripts\default.ps1 = ..\..\scripts\default.ps1
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM.NHibernate.Tests", "ORM.NHibernate.Tests\ORM.NHibernate.Tests.csproj", "{1B74A301-E7B8-498A-B94A-57014E3160EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{DE24C5DB-B6A6-41D6-8469-309D874AE2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE24C5DB-B6A6-41D6-8469-309D874AE2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE24C5DB-B6A6-41D6-8469-309D874AE2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B74A301-E7B8-498A-B94A-57014E3160EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B74A301-E7B8-498A-B94A-57014E3160EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B74A301-E7B8-498A-B94A-57014E3160EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B74A301-E7B8-498A-B94A-57014E3160EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
