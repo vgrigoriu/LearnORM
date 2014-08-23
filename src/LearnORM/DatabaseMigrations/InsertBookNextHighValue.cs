@@ -7,7 +7,7 @@ namespace DatabaseMigrations
     {
         public override void Up()
         {
-            Insert.IntoTable("NextHighVaues").InSchema("dbo").Row(new
+            Insert.IntoTable("NextHighValues").InSchema("dbo").Row(new
             {
                 NextHigh = 0,
                 EntityName = "book"
@@ -16,7 +16,7 @@ namespace DatabaseMigrations
 
         public override void Down()
         {
-            Delete.FromTable("NextHighVaues").InSchema("dbo").Row(new
+            Delete.FromTable("NextHighValues").InSchema("dbo").Row(new
             {
                 EntityName = "book"
             });

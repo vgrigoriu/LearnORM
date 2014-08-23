@@ -7,7 +7,7 @@ namespace DatabaseMigrations
     {
         public override void Up()
         {
-            Create.Table("NextHighVaues")
+            Create.Table("NextHighValues")
                 .WithDescription("Holds the next values for the HiLo id generator")
                 .InSchema("dbo")
                 .WithColumn("NextHigh").AsInt32()
@@ -16,7 +16,7 @@ namespace DatabaseMigrations
 
         public override void Down()
         {
-            Delete.Table("NextHighVaues").InSchema("dbo");
+            Delete.Table("NextHighValues").InSchema("dbo");
         }
     }
 }

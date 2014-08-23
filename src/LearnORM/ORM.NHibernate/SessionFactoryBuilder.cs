@@ -46,7 +46,7 @@ namespace ORM.NHibernate
                 id => id.Generator(Generators.HighLow,
                     generator => generator.Params(new
                     {
-                        table = "NextHighVaues",
+                        table = "NextHighValues",
                         column = "NextHigh",
                         max_lo = 100,
                         where = string.Format("EntityName = '{0}'", type.Name.ToLowerInvariant())
