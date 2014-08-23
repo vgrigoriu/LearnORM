@@ -10,7 +10,7 @@ task UpdateDatabase -depends Compile {
     $migrate = Join-Path $PSScriptRoot ..\src\LearnORM\packages\FluentMigrator.1.2.1.0\tools\Migrate.exe
 	$assembly = Join-Path $PSScriptRoot ..\src\LearnORM\DatabaseMigrations\bin\Debug\DatabaseMigrations.dll
 	exec {
-		& $migrate --target $assembly --task listmigrations --dbType SqlServer --connection "Server=(localdb)\v11.0;Integrated Security=true;Database=LearnORM"
+		& $migrate --target $assembly --dbType SqlServer --connection "Server=(localdb)\v11.0;Integrated Security=true;Database=LearnORM"
 	}
 }
 
