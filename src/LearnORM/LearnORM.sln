@@ -14,6 +14,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigrations", "Datab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM.NHibernate", "ORM.NHibernate\ORM.NHibernate.csproj", "{DE24C5DB-B6A6-41D6-8469-309D874AE2C1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{EFC0B18C-8777-4B35-B80F-183F635C0F91}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\scripts\default.ps1 = ..\..\scripts\default.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
