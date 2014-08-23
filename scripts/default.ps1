@@ -12,7 +12,9 @@ task Test -depends UpdateDatabase {
 	}
 }
 
-task UpdateDatabase -depends Compile {
+task UpdateDatabase -depends UpdateMSSQLDatabase, UpdateMySQLDatabase;
+
+task UpdateMSSQLDatabase -depends Compile {
 	exec {
 		& $migrate --target $assembly --dbType SqlServer --connection "Server=(localdb)\v11.0;Integrated Security=true;Database=LearnORM"
 	}
@@ -20,7 +22,7 @@ task UpdateDatabase -depends Compile {
 
 task UpdateMySQLDatabase -depends Compile {
 	exec {
-		& $migrate --verbose=true --target $assembly --dbType MySql --connection "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;"
+		& $migrate --target $assembly --dbType MySql --connection "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;"
 	}
 }
 
