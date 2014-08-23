@@ -9,14 +9,13 @@ namespace DatabaseMigrations
         {
             Create.Table("NextHighValues")
                 .WithDescription("Holds the next values for the HiLo id generator")
-                .InSchema("dbo")
                 .WithColumn("NextHigh").AsInt32()
                 .WithColumn("EntityName").AsString(255);
         }
 
         public override void Down()
         {
-            Delete.Table("NextHighValues").InSchema("dbo");
+            Delete.Table("NextHighValues");
         }
     }
 }

@@ -9,7 +9,6 @@ namespace DatabaseMigrations
         {
             Create.Table("Book")
                 .WithDescription("Represents a book")
-                .InSchema("dbo")
                 .WithColumn("Id").AsInt32().PrimaryKey("PK_Book")
                 .WithColumn("Title").AsString(255)
                 .WithColumn("TitleForSorting").AsString(255)

@@ -7,9 +7,9 @@ namespace DatabaseMigrations
     {
         public override void Up()
         {
-            Alter.Column("TitleForSorting").OnTable("Book").InSchema("dbo")
+            Alter.Column("TitleForSorting").OnTable("Book")
                 .AsString(255).Nullable();
-            Alter.Column("OriginalTitle").OnTable("Book").InSchema("dbo")
+            Alter.Column("OriginalTitle").OnTable("Book")
                 .AsString(255).Nullable();
         }
 
