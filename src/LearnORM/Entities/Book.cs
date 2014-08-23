@@ -2,8 +2,8 @@
 {
     public class Book : BaseEntity
     {
-        public string Title { get; set; }
-        public string TitleForSorting { get; set; }
-        public string OriginalTitle { get; set; }
+        public virtual string Title { get; set; }
+        public virtual string TitleForSorting { get; set; }
+        public virtual string OriginalTitle { get; set; }
     }
 }
