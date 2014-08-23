@@ -19,11 +19,15 @@ task UpdateDatabase -depends Compile {
 }
 
 task Compile -depends Clean {
-    msbuild $sln
+	exec {
+		msbuild $sln
+	}
 }
 
 task Clean {
-    msbuild $sln /t:clean
+	exec {
+		msbuild $sln /t:clean
+	}
 }
 
 task ? -Description "Helper to display task info" {
