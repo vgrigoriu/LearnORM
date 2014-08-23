@@ -38,6 +38,20 @@ task Clean {
 	}
 }
 
+task RevertDatabase -depends RevertMSSQLDatabase, RevertMySQLDatabase;
+
+task RevertMSSQLDatabase -depends Compile {
+	exec {
+		& $migrate --target $assembly --task rollback:all --dbType SqlServer --connection "Server=(localdb)\v11.0;Integrated Security=true;Database=LearnORM"
+	}
+}
+
+task RevertMySQLDatabase -depends Compile {
+	exec {
+		& $migrate --target $assembly --task rollback:all --dbType MySql --connection "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;"
+	}
+}
+
 task ? -Description "Helper to display task info" {
     "Write-Documentation"
 }
