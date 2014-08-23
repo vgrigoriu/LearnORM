@@ -2,7 +2,7 @@
 
 namespace DatabaseMigrations
 {
-    [Migration(201408221218, "Make Book columns nullable")]
+    [Migration(201408231218, "Make Book columns nullable")]
     public class MakeBookColumnsNullable : Migration
     {
         public override void Up()
