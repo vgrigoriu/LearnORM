@@ -32,7 +32,7 @@ namespace ORM.NHibernate
                 // To find the named pipes server name, use:
                 // sqllocaldb.exe info v11.0
                 // This changes whenever the Local DB is restarted.
-                db.ConnectionString = @"Server=np:\\.\pipe\LOCALDB#DA582783\tsql\query;Integrated Security=true;Database=LearnORM";
+                db.ConnectionString = @"Server=np:\\.\pipe\LOCALDB#70F075CE\tsql\query;Integrated Security=true;Database=LearnORM";
             });
         }
 
