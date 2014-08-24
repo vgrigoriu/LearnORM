@@ -67,7 +67,7 @@ namespace ORM.NHibernate
                     {
                         table = "NextHighValues",
                         column = "NextHigh",
-                        max_lo = 100,
+                        max_lo = 99,
                         where = string.Format("EntityName = '{0}'", type.Name.ToLowerInvariant())
                     })));
 
