@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="CreateBookTable.cs" />
     <Compile Include="CreateNextHighValueTable.cs" />
+    <Compile Include="CreateTableAnswer.cs" />
     <Compile Include="CreateTablePublisher.cs" />
+    <Compile Include="CreateTableQuestion.cs" />
     <Compile Include="EmptyMigration.cs" />
     <Compile Include="InsertBookNextHighValue.cs" />
     <Compile Include="MakeBookColumnsNullable.cs" />
