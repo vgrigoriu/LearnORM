@@ -52,6 +52,7 @@
     <Compile Include="BookWithPublisherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionQueryTests.cs" />
+    <Compile Include="QuestionSavingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -51,6 +51,7 @@
     <Compile Include="InsertBookNextHighValue.cs" />
     <Compile Include="InsertSampleQuestions.cs" />
     <Compile Include="MakeBookColumnsNullable.cs" />
+    <Compile Include="MakeQuestionIdNullable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
