@@ -1,11 +1,11 @@
 $sln = Join-Path $PSScriptRoot ..\src\LearnORM\LearnORM.sln
-$migrate = Join-Path $PSScriptRoot ..\src\LearnORM\packages\FluentMigrator.1.2.1.0\tools\Migrate.exe
+$migrate = Join-Path $PSScriptRoot ..\packages\FluentMigrator.1.2.1.0\tools\Migrate.exe
 $assembly = Join-Path $PSScriptRoot ..\src\LearnORM\DatabaseMigrations\bin\Debug\DatabaseMigrations.dll
 
 task default -depends Test
 
 task Test -depends UpdateDatabase {
-	$xunit = Join-Path $PSScriptRoot ..\src\LearnORM\packages\xunit.runners.1.9.2\tools\xunit.console.clr4.exe
+	$xunit = Join-Path $PSScriptRoot ..\packages\xunit.runners.1.9.2\tools\xunit.console.clr4.exe
 	$tests = Join-Path $PSScriptRoot ..\src\LearnORM\ORM.NHibernate.Tests\bin\Debug\ORM.NHibernate.Tests.dll
     exec {
 		& $xunit $tests
