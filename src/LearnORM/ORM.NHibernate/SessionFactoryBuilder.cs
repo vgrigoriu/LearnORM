@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Entities;
+using Entities.Quizes;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Cfg.Loquacious;
@@ -73,12 +74,26 @@ namespace ORM.NHibernate
             // Foreign key columns end in Id
             mapper.BeforeMapManyToOne += (inspector, member, map) => map.Column(member.LocalMember.Name + "Id");
 
+            mapper.BeforeMapBag += (inspector, member, bag) =>
+            {
+                // FK column name is typeof(parent) + "Id"
+                bag.Key(keyMapper => keyMapper.Column(member.GetContainerEntity(inspector).Name + "Id"));
+                // cascade all from parent to children
+                bag.Cascade(Cascade.All);
+            };
+
             return mapper.CompileMappingForEach(GetEntityTypes());
         }
 
         private IEnumerable<Type> GetEntityTypes()
         {
-            return new[] {typeof (Book), typeof(Publisher)};
+            return new[]
+            {
+                typeof (Book),
+                typeof(Publisher),
+                typeof(Question),
+                typeof(Answer)
+            };
         }
     }
 }
