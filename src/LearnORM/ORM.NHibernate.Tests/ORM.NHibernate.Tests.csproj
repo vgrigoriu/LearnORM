@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="BookTests.cs" />
     <Compile Include="BookWithPublisherTests.cs" />
+    <Compile Include="DatabaseFixture.cs" />
+    <Compile Include="DatabaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionQueryTests.cs" />
     <Compile Include="QuestionSavingTests.cs" />

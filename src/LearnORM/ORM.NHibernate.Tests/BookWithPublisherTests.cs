@@ -7,16 +7,6 @@ using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
-    public abstract class DatabaseTests : IUseFixture<DatabaseFixture>
-    {
-        protected DatabaseFixture SessionFactories;
-
-        public void SetFixture(DatabaseFixture fixture)
-        {
-            SessionFactories = fixture;
-        }
-    }
-
     public class BookWithPublisherTests : DatabaseTests
     {
         [Fact]
@@ -67,30 +57,6 @@ namespace ORM.NHibernate.Tests
                 Assert.Equal(publisherName, books.Single().Publisher.Name);
 
                 transaction.Commit();
-            }
-        }
-    }
-
-    public class DatabaseFixture
-    {
-        private readonly Lazy<ISessionFactory> mySqlSessionFactory = new Lazy<ISessionFactory>(
-            () => new SessionFactoryBuilder().BuildForMySql());
-        private readonly Lazy<ISessionFactory> msSqlSessionFactory = new Lazy<ISessionFactory>(
-            () => new SessionFactoryBuilder().BuildForMsSql());
-
-        public ISessionFactory MySqlSessionFactory
-        {
-            get
-            {
-                return mySqlSessionFactory.Value;
-            }
-        }
-
-        public ISessionFactory MsSqlSessionFactory
-        {
-            get
-            {
-                return msSqlSessionFactory.Value;
             }
         }
     }
