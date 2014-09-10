@@ -16,7 +16,7 @@ task UpdateDatabase -depends UpdateMSSQLDatabase, UpdateMySQLDatabase;
 
 task UpdateMSSQLDatabase -depends Compile {
 	exec {
-		& $migrate --target $assembly --dbType SqlServer --connection "Server=(localdb)\v11.0;Integrated Security=true;Database=LearnORM"
+		& $migrate --target $assembly --dbType SqlServer --connection "Server=localhost\sqlexpress;Integrated Security=true;Database=LearnORM"
 	}
 }
 

@@ -28,12 +28,7 @@ namespace ORM.NHibernate
             return Build(db =>
             {
                 db.Dialect<MsSql2012Dialect>();
-                // Cannot use (local)\v11.0 with NHibernate,
-                // see http://rhnatiuk.wordpress.com/2012/11/08/localdb-and-nhibernate/.
-                // To find the named pipes server name, use:
-                // sqllocaldb.exe info v11.0
-                // This changes whenever the Local DB is restarted.
-                db.ConnectionString = @"Server=np:\\.\pipe\LOCALDB#70F075CE\tsql\query;Integrated Security=true;Database=LearnORM";
+                db.ConnectionString = @"Server=localhost\sqlexpress;Integrated Security=true;Database=LearnORM";
             });
         }
 
