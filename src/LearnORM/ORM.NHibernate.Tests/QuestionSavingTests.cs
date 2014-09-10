@@ -33,17 +33,17 @@ namespace ORM.NHibernate.Tests
             using (var session = sessionFactory.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
-                var question = new Question()
+                var question = new Question
                 {
                     Text = questionText,
                     Answers = new[]
                     {
-                        new Answer()
+                        new Answer
                         {
                             Text = correctAnswerText,
                             IsCorrect = true
                         },
-                        new Answer()
+                        new Answer
                         {
                             Text = incorrectAnswerText,
                             IsCorrect = false
