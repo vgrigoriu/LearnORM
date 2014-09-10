@@ -6,23 +6,19 @@ using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
-    public class QuestionSavingTests
+    public class QuestionSavingTests : DatabaseTests
     {
         [Fact]
         public void CanSaveQuestionsToMsSql()
         {
-            var sessionFactoryBuilder = new SessionFactoryBuilder();
-            var sessionFactory = sessionFactoryBuilder.BuildForMsSql();
-
+            var sessionFactory = SessionFactories.MsSqlSessionFactory;
             CanSaveQuestions(sessionFactory);
         }
 
         [Fact]
         public void CanSaveQuestionsToMySql()
         {
-            var sessionFactoryBuilder = new SessionFactoryBuilder();
-            var sessionFactory = sessionFactoryBuilder.BuildForMySql();
-
+            var sessionFactory = SessionFactories.MySqlSessionFactory;
             CanSaveQuestions(sessionFactory);
         }
 

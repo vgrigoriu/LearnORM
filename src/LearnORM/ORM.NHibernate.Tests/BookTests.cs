@@ -7,23 +7,19 @@ using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
-    public class BookTests
+    public class BookTests : DatabaseTests
     {
         [Fact]
         public void CanSaveAndQueryBookFromMsSql()
         {
-            var sessionFactoryBuilder = new SessionFactoryBuilder();
-            var sessionFactory = sessionFactoryBuilder.BuildForMsSql();
-
+            var sessionFactory = SessionFactories.MsSqlSessionFactory;
             CanSaveAndQueryBook(sessionFactory);
         }
 
         [Fact]
         public void CanSaveAndQueryBookFromMySql()
         {
-            var sessionFactoryBuilder = new SessionFactoryBuilder();
-            var sessionFactory = sessionFactoryBuilder.BuildForMySql();
-
+            var sessionFactory = SessionFactories.MySqlSessionFactory;
             CanSaveAndQueryBook(sessionFactory);
         }
 
