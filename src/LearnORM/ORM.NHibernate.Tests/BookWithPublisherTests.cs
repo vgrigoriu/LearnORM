@@ -3,28 +3,14 @@ using System.Linq;
 using Entities;
 using NHibernate;
 using NHibernate.Linq;
+using ORM.NHibernate.Tests.TestingInfrastructure;
 using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
     public class BookWithPublisherTests : DatabaseTests
     {
-        [Fact]
-        public void CanAddBookWithPublisherToMsSql()
-        {
-            var sessionFactory = SessionFactories.MsSqlSessionFactory;
-
-            CanAddBookWithPublisher(sessionFactory);
-        }
-
-        [Fact]
-        public void CanAddBookWithPublisherToMySql()
-        {
-            var sessionFactory = SessionFactories.MySqlSessionFactory;
-
-            CanAddBookWithPublisher(sessionFactory);
-        }
-
+        [DatabaseFact]
         private void CanAddBookWithPublisher(ISessionFactory sessionFactory)
         {
             string bookTitle = "Hild_" + Guid.NewGuid();

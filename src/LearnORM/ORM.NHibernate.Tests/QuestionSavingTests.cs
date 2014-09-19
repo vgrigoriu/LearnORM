@@ -2,27 +2,15 @@
 using System.Linq;
 using Entities.Quizes;
 using NHibernate;
+using ORM.NHibernate.Tests.TestingInfrastructure;
 using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
     public class QuestionSavingTests : DatabaseTests
     {
-        [Fact]
-        public void CanSaveQuestionsToMsSql()
-        {
-            var sessionFactory = SessionFactories.MsSqlSessionFactory;
-            CanSaveQuestions(sessionFactory);
-        }
-
-        [Fact]
-        public void CanSaveQuestionsToMySql()
-        {
-            var sessionFactory = SessionFactories.MySqlSessionFactory;
-            CanSaveQuestions(sessionFactory);
-        }
-
-        private void CanSaveQuestions(ISessionFactory sessionFactory)
+        [DatabaseFact]
+        public void CanSaveQuestions(ISessionFactory sessionFactory)
         {
             var questionText = "Can you touch this?_" + Guid.NewGuid();
             const string correctAnswerText = "No";

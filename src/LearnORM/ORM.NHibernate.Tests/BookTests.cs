@@ -3,27 +3,15 @@ using System.Linq;
 using Entities;
 using NHibernate;
 using NHibernate.Linq;
+using ORM.NHibernate.Tests.TestingInfrastructure;
 using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
     public class BookTests : DatabaseTests
     {
-        [Fact]
-        public void CanSaveAndQueryBookFromMsSql()
-        {
-            var sessionFactory = SessionFactories.MsSqlSessionFactory;
-            CanSaveAndQueryBook(sessionFactory);
-        }
-
-        [Fact]
-        public void CanSaveAndQueryBookFromMySql()
-        {
-            var sessionFactory = SessionFactories.MySqlSessionFactory;
-            CanSaveAndQueryBook(sessionFactory);
-        }
-
-        private static void CanSaveAndQueryBook(ISessionFactory sessionFactory)
+        [DatabaseFact]
+        public void CanSaveAndQueryBook(ISessionFactory sessionFactory)
         {
             string title = "Dumbrava minunată" + Guid.NewGuid();
             using (var session = sessionFactory.OpenSession())

@@ -2,27 +2,15 @@
 using Entities.Quizes;
 using NHibernate;
 using NHibernate.Linq;
+using ORM.NHibernate.Tests.TestingInfrastructure;
 using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
     public class QuestionQueryTests : DatabaseTests
     {
-        [Fact]
-        public void CanQueryQuestionsFromMsSql()
-        {
-            var sessionFactory = SessionFactories.MsSqlSessionFactory;
-            CanQueryQuestions(sessionFactory);
-        }
-
-        [Fact]
-        public void CanQueryQuestionsFromMySql()
-        {
-            var sessionFactory = SessionFactories.MySqlSessionFactory;
-            CanQueryQuestions(sessionFactory);
-        }
-
-        private void CanQueryQuestions(ISessionFactory sessionFactory)
+        [DatabaseFact]
+        public void CanQueryQuestions(ISessionFactory sessionFactory)
         {
             using (var session = sessionFactory.OpenSession())
             using (var transaction = session.BeginTransaction())
