@@ -51,6 +51,7 @@
     <Compile Include="BookTests.cs" />
     <Compile Include="BookWithPublisherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionDeletingTests.cs" />
     <Compile Include="QuestionQueryTests.cs" />
     <Compile Include="QuestionSavingTests.cs" />
     <Compile Include="SessionFactoryExtensions.cs" />
