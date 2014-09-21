@@ -16,35 +16,10 @@ namespace ORM.NHibernate.Tests
             const string correctAnswerText = "No";
             const string incorrectAnswerText = "Yes";
 
-            int questionId;
-
-            using (var session = sessionFactory.OpenSession())
-            using (var transaction = session.BeginTransaction())
-            {
-                var question = new Question
-                {
-                    Text = questionText,
-                    Answers = new[]
-                    {
-                        new Answer
-                        {
-                            Text = correctAnswerText,
-                            IsCorrect = true
-                        },
-                        new Answer
-                        {
-                            Text = incorrectAnswerText,
-                            IsCorrect = false
-                        }
-                    }
-                };
-
-                session.Save(question);
-
-                transaction.Commit();
-
-                questionId = question.Id;
-            }
+            int questionId = sessionFactory.CreateQuestion(
+                questionText,
+                correctAnswerText,
+                incorrectAnswerText);
 
             using (var session = sessionFactory.OpenSession())
             using (var transaction = session.BeginTransaction())
