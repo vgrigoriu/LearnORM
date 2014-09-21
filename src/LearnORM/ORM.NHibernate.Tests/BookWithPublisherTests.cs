@@ -8,7 +8,7 @@ using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
-    public class BookWithPublisherTests : DatabaseTests
+    public class BookWithPublisherTests
     {
         [DatabaseFact]
         private void CanAddBookWithPublisher(ISessionFactory sessionFactory)

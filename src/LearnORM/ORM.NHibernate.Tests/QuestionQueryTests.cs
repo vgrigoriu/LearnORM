@@ -7,7 +7,7 @@ using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
-    public class QuestionQueryTests : DatabaseTests
+    public class QuestionQueryTests
     {
         [DatabaseFact]
         public void CanQueryQuestions(ISessionFactory sessionFactory)

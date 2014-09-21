@@ -8,7 +8,7 @@ using Xunit;
 
 namespace ORM.NHibernate.Tests
 {
-    public class BookTests : DatabaseTests
+    public class BookTests
     {
         [DatabaseFact]
         public void CanSaveAndQueryBook(ISessionFactory sessionFactory)
