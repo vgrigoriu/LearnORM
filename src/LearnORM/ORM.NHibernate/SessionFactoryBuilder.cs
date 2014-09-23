@@ -74,7 +74,7 @@ namespace ORM.NHibernate
                 // FK column name is typeof(parent) + "Id"
                 bag.Key(keyMapper => keyMapper.Column(member.GetContainerEntity(inspector).Name + "Id"));
                 // cascade all from parent to children
-                bag.Cascade(Cascade.All);
+                bag.Cascade(Cascade.All | Cascade.DeleteOrphans);
             };
 
             return mapper.CompileMappingForEach(GetEntityTypes());
@@ -85,9 +85,9 @@ namespace ORM.NHibernate
             return new[]
             {
                 typeof (Book),
-                typeof(Publisher),
-                typeof(Question),
-                typeof(Answer)
+                typeof (Publisher),
+                typeof (Question),
+                typeof (Answer)
             };
         }
     }
