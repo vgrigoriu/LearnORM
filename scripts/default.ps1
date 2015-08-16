@@ -26,6 +26,12 @@ task UpdateMySQLDatabase -depends Compile {
 	}
 }
 
+task UpdateOracleDatabase -depends Compile {
+    exec {
+        & $migrate --target $assembly --dbType OracleManaged --connection "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=learnorm;Password=parola"
+    }
+}
+
 task Compile -depends Clean {
 	exec {
 		msbuild $sln
