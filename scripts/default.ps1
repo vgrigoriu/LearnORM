@@ -12,7 +12,7 @@ task Test -depends UpdateDatabase {
 	}
 }
 
-task UpdateDatabase -depends UpdateMSSQLDatabase, UpdateMySQLDatabase;
+task UpdateDatabase -depends UpdateMSSQLDatabase, UpdateOracleDatabase;
 
 task UpdateMSSQLDatabase -depends Compile {
 	exec {

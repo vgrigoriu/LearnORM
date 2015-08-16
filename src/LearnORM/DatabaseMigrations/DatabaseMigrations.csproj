@@ -49,6 +49,7 @@
     <Compile Include="CreateTableAnswer.cs" />
     <Compile Include="CreateTablePublisher.cs" />
     <Compile Include="CreateTableQuestion.cs" />
+    <Compile Include="CreateTableSensorReading.cs" />
     <Compile Include="EmptyMigration.cs" />
     <Compile Include="InsertBookNextHighValue.cs" />
     <Compile Include="InsertSampleQuestions.cs" />
