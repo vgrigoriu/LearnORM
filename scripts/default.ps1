@@ -1,5 +1,5 @@
 $sln = Join-Path $PSScriptRoot ..\src\LearnORM\LearnORM.sln
-$migrate = Join-Path $PSScriptRoot ..\packages\FluentMigrator.1.6.0\tools\Migrate.exe
+$migrate = "C:\proiecte\fluentmigrator\src\FluentMigrator.Console\bin\Debug\Migrate.exe"
 $assembly = Join-Path $PSScriptRoot ..\src\LearnORM\DatabaseMigrations\bin\Debug\DatabaseMigrations.dll
 
 task default -depends Test
@@ -22,13 +22,13 @@ task UpdateMSSQLDatabase -depends Compile {
 
 task UpdateMySQLDatabase -depends Compile {
 	exec {
-		& $migrate --target $assembly --dbType MySql --connection "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;"
+		& $migrate --target $assembly --dbType MySql --verbose=true --connection "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;"
 	}
 }
 
 task UpdateOracleDatabase -depends Compile {
     exec {
-        & $migrate --target $assembly --dbType OracleManaged --connection "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=learnorm;Password=parola"
+        & $migrate --target $assembly --dbType OracleManaged --verbose=true --connection "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=learnorm;Password=parola"
     }
 }
 

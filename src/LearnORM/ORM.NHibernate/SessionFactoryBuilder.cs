@@ -8,6 +8,7 @@ using NHibernate.Cfg;
 using NHibernate.Cfg.Loquacious;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Dialect;
+using NHibernate.Driver;
 using NHibernate.Mapping.ByCode;
 
 namespace ORM.NHibernate
@@ -20,6 +21,16 @@ namespace ORM.NHibernate
             {
                 db.Dialect<MySQL55Dialect>();
                 db.ConnectionString = "Server=localhost;Database=LearnORM;Uid=vgrigoriu;Pwd=12345;";
+            });
+        }
+
+        public ISessionFactory BuildForOracle()
+        {
+            return Build(db =>
+            {
+                db.Dialect<Oracle10gDialect>();
+                db.Driver<OracleManagedDataClientDriver>();
+                db.ConnectionString = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=learnorm;Password=parola";
             });
         }
 
@@ -87,7 +98,8 @@ namespace ORM.NHibernate
                 typeof (Book),
                 typeof (Publisher),
                 typeof (Question),
-                typeof (Answer)
+                typeof (Answer),
+                typeof (SensorReading)
             };
         }
     }
