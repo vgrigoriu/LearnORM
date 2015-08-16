@@ -11,7 +11,7 @@ namespace DatabaseMigrations
                 .WithColumn("Id").AsInt32().PrimaryKey("PK_SensorReading")
                 .WithColumn("SensorName").AsString()
                 .WithColumn("Value").AsDouble()
-                .WithColumn("Date").AsDateTimeOffset();
+                .WithColumn("ReadingDate").AsDateTimeOffset();
 
             Insert.IntoTable("NextHighValues").Row(new
             {
