@@ -1,5 +1,5 @@
 $sln = Join-Path $PSScriptRoot ..\src\LearnORM\LearnORM.sln
-$migrate = Join-Path $PSScriptRoot ..\packages\FluentMigrator.1.2.1.0\tools\Migrate.exe
+$migrate = Join-Path $PSScriptRoot ..\packages\FluentMigrator.1.6.0\tools\Migrate.exe
 $assembly = Join-Path $PSScriptRoot ..\src\LearnORM\DatabaseMigrations\bin\Debug\DatabaseMigrations.dll
 
 task default -depends Test
